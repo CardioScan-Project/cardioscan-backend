@@ -5,7 +5,7 @@ using CardioScanAPI.Areas.User.Models.User;
 using CardioScanAPI.Areas.General.Models;
 using ChatBot.API.Utils;
 
-namespace ChatBot.API.Areas.Dashboard.Data
+namespace ChatBot.API.Areas.User.Data
 {
     public class DUser
     {

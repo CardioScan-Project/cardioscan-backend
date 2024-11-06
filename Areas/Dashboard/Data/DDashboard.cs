@@ -1,7 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using CardioScanAPI.Connection;
-using CardioScanAPI.Areas.General.Models.Auth;
 using CardioScanAPI.Areas.Dashboard.Models.Dashboard;
 
 namespace ChatBot.API.Areas.Dashboard.Data

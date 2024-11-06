@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CardioScanAPI.Areas.Dashboard.Controllers
 {
-    [Route("api/dasboard")]
+    [Route("api/dashboard")]
     [ApiController]
     [Authorize]
     public class DashboardController : ControllerBase

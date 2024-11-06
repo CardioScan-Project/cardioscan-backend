@@ -1,10 +1,10 @@
 ﻿using CardioScanAPI.Areas.User.Models.User;
-using ChatBot.API.Areas.Dashboard.Data;
 using ChatBot.API.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mail;
 using System.Net;
+using ChatBot.API.Areas.User.Data;
 
 namespace CardioScanAPI.Areas.User.Controllers
 {
