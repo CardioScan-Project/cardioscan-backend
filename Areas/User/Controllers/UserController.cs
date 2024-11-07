@@ -85,5 +85,73 @@ namespace CardioScanAPI.Areas.User.Controllers
 
             return Ok(response.Respuesta);
         }
+
+        [HttpGet("patient-list")]
+        public async Task<IActionResult> GetPatientList(int doctorId, string firstName, string lastName, string dni)
+        {
+            var servicio = new DUser();
+
+            var data = await servicio.GetPatientList(doctorId, firstName, lastName, dni);
+
+            return Ok(data);
+        }
+
+        [HttpPost("add-prenancy")]
+        public async Task<IActionResult> AddPrenancy([FromBody] Pregnancy pregnancy)
+        {
+            var servicio = new DUser();
+
+            var response = await servicio.AddPrenancy(pregnancy.PatientId, pregnancy.LastMenstrualPeriod);
+
+            if (response.Codigo == ConstantHelpers.Response.Respuesta.INCORRECTO)
+                return BadRequest(response.Respuesta);
+
+            return Ok(response.Respuesta);
+        }
+
+        [HttpGet("pregnancies")]
+        public async Task<IActionResult> GetPregnancies(int patientId)
+        {
+            var servicio = new DUser();
+
+            var data = await servicio.GetPregnancies(patientId);
+
+            return Ok(data);
+        }
+
+        [HttpGet("screening-list")]
+        public async Task<IActionResult> GetScreeningList(int doctorId, int patientId, string date)
+        {
+            var servicio = new DUser();
+
+            var data = await servicio.GetScreeningList(doctorId, patientId, date);
+
+            return Ok(data);
+        }
+
+        [HttpGet("echocardiographies")]
+        public async Task<IActionResult> EchocardiographiesByScreening(int screeningId)
+        {
+            var servicio = new DUser();
+
+            var data = await servicio.EchocardiographiesByScreening(screeningId);
+
+            return Ok(data);
+        }
+
+        [HttpPost("echocardiography")]
+        public async Task<IActionResult> AddEchocardiography(int screeningId, [FromBody] Echocardiography echocardiography)
+        {
+            var servicio = new DUser();
+
+            echocardiography.ScreeningId = screeningId;
+
+            var response = await servicio.AddEchocardiography(echocardiography);
+
+            if (response.Codigo == ConstantHelpers.Response.Respuesta.INCORRECTO)
+                return BadRequest(response.Respuesta);
+
+            return Ok(response.Respuesta);
+        }
     }
 }
